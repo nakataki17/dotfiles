@@ -1,0 +1,31 @@
+# sheldon
+eval "$(sheldon source)"
+
+## 環境シリーズ
+# asdf
+export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
+
+# pnpm
+export PNPM_HOME="/Users/nakataki/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+
+## 補完/ターミナルシリーズ
+# compinit
+fpath=(
+  ${HOME}/.zsh/completions
+  ${fpath}
+)
+autoload -Uz compinit
+compinit
+
+# starship
+eval "$(starship init zsh)"
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/nakataki/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/nakataki/google-cloud-sdk/completion.zsh.inc'; fi
+
+## 手元でしか使わないシリーズ
+[ -f ~/.zshrc.local ] && source ~/.zshrc.local
