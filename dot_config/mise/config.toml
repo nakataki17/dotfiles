@@ -1,0 +1,7 @@
+[tools]
+gitui = "latest"
+python = "3.11"
+zellij = "latest"
+
+[settings]
+override_tool_versions_filenames = ["none"]
