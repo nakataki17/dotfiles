@@ -1,10 +1,16 @@
-# 手元でしか使わないシリーズ(sheldonのinitなど)
-# sheldon, mise はそれぞれの環境でセットアップすることを要求する
+# mise
+eval "$(~/.local/bin/mise activate zsh)"
+
+# 手元でしか使わないシリーズ
 [ -f ~/.zshrc.init.local ] && source ~/.zshrc.init.local
 
-# sheldon
-eval "$(sheldon source)"
-
+{{ if eq .chezmoi.os "linux" }}
+{{   if (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
+# WSL限定コーナー(空行多くなるけど許して)
+# snap
+export PATH="/snap/bin:$PATH"
+{{   end }}
+{{ end }}
 ## 環境シリーズ
 # asdf
 export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
@@ -15,6 +21,9 @@ case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
+
+# sheldon
+eval "$(sheldon source)"
 
 ## 補完/ターミナルシリーズ
 # compinit
