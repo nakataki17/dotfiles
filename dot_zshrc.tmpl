@@ -12,6 +12,9 @@ export PATH="/snap/bin:$PATH"
 # asdf
 export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
 
+# mise
+eval "$(mise activate zsh)"
+
 # pnpm
 export PNPM_HOME="/Users/nakataki/Library/pnpm"
 case ":$PATH:" in
@@ -31,6 +34,10 @@ fpath=(
 autoload -Uz compinit
 compinit
 
+# fzf
+# Set up fzf key bindings and fuzzy completion
+source <(fzf --zsh)
+
 # starship
 eval "$(starship init zsh)"
 
@@ -39,3 +46,5 @@ if [ -f '/Users/nakataki/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/
 
 ## 手元でしか使わないシリーズ
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
+
+
