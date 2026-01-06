@@ -5,6 +5,7 @@ python = "3.11"
 zellij = "latest"
 node="24"
 chezmoi = "2.68.1"
+fzf = "latest"
 
 [settings]
 override_tool_versions_filenames = ["none"]
