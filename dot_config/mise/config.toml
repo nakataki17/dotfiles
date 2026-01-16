@@ -7,6 +7,7 @@ chezmoi = "2.68.1"
 fzf = "latest"
 zoxide = "latest"
 lazygit = "latest"
+deno = "latest"
 
 [settings]
 override_tool_versions_filenames = ["none"]
