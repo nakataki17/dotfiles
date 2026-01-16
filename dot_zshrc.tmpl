@@ -37,7 +37,7 @@ compinit
 # fzf
 # Set up fzf key bindings and fuzzy completion
 source <(fzf --zsh)
-alias ghcd='cd $(ghq list -p | fzf)'
+alias ghcd='zi $(ghq list -p | fzf)'
 alias ghget='ghq get $(fzf --prompt="ghq get: ")'
 
 # zoxide(z, zi コマンド)
