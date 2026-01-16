@@ -18,6 +18,9 @@ shell = "zsh"
 github = "zsh-users/zsh-autosuggestions"
 use = ["{{ name }}.zsh"]
 
+[plugins.zeno]
+github = "yuki-yano/zeno.zsh"
+
 # For example:
 #
 # [plugins.base16]
