@@ -49,6 +49,17 @@ eval "$(starship init zsh)"
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/nakataki/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/nakataki/google-cloud-sdk/completion.zsh.inc'; fi
 
+# zeno.zsh
+if [[ -n $ZENO_LOADED ]]; then
+  # ここに任意のZLEの記述を行う
+  bindkey ' '  zeno-auto-snippet
+  bindkey '^m' zeno-auto-snippet-and-accept-line
+  bindkey '^i' zeno-completion
+  bindkey '^g' zeno-ghq-cd
+  bindkey '^r' zeno-history-selection
+  bindkey '^x' zeno-insert-snippet
+fi
+
 ## 手元でしか使わないシリーズ
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
 
