@@ -9,6 +9,10 @@ export PATH="/snap/bin:$PATH"
 {{   end }}
 {{ end }}
 ## 環境シリーズ
+
+# .local/bin
+export PATH="$HOME/.local/bin:$PATH"
+
 # asdf
 export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
 
