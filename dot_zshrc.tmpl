@@ -22,8 +22,8 @@ eval "$(mise activate zsh)"
 # pnpm
 export PNPM_HOME="/Users/nakataki/Library/pnpm"
 case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
+  *":$PNPM_HOME/bin:"*) ;;
+  *) export PATH="$PNPM_HOME/bin:$PATH" ;;
 esac
 
 # go
@@ -55,6 +55,12 @@ eval "$(starship init zsh)"
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/nakataki/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/nakataki/google-cloud-sdk/completion.zsh.inc'; fi
+
+# git-wt https://koic.hatenablog.com/entry/introduce-git-wt
+eval "$(git wt --init zsh)"
+wt() {
+  git wt "$(git wt | tail -n +2 | fzf | awk '{print $(NF-1)}')"
+}     
 
 # zeno.zsh
 if [[ -n $ZENO_LOADED ]]; then
